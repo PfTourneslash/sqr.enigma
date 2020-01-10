@@ -7,14 +7,14 @@ public class Machine {
 	private Rotor rightRotor;
 	private Reflector reflector;
 
-	public void initRotors(Reflector reflector, Rotor left, Rotor middle, Rotor right) {
+	public void initRotors(Reflector reflector, Rotor left, Rotor middle, Rotor right) { //inialise la machine en positionnant les rotor et le reflecteur
 		this.reflector = reflector;
 		leftRotor = left;
 		middleRotor = middle;
 		rightRotor = right;
 	}
 
-	public void setPositions(String setting) {
+	public void setPositions(String setting) { //Permet de définir les positions de tout les rotor et du reflecteur de la machine
 		char[] charSettings = setting.toCharArray();
 		reflector.setPosition(Rotor.toIndex(charSettings[0]));
 		leftRotor.setPosition(Rotor.toIndex(charSettings[1]));
@@ -22,13 +22,13 @@ public class Machine {
 		rightRotor.setPosition(Rotor.toIndex(charSettings[3]));
 	}
 	
-	public void configure(Reflector reflector, Rotor left, Rotor middle, Rotor right, String setting) {
+	public void configure(Reflector reflector, Rotor left, Rotor middle, Rotor right, String setting) { //Permet de configurer les rotor/reflector et leurs positions de départ
 		this.initRotors(reflector, left, middle, right);
 		this.setPositions(setting);
 
 	}
 
-	public String convert(String msg) {
+	public String convert(String msg) { //permet de convertir une chaine
 		msg = msg.toUpperCase();
 		char[] msgChars = msg.toCharArray();
 		String result = "";
@@ -38,7 +38,7 @@ public class Machine {
 		return result;
 	}
 
-	char convertChar(char c) {
+	char convertChar(char c) { //convertie un character
 		advanceRotors();
 		int charIndex = Rotor.toIndex(c);
 		int output;
@@ -53,7 +53,7 @@ public class Machine {
 
 	}
 
-	void advanceRotors() {
+	void advanceRotors() { //avance les rotors en fonctions des notchs
 		boolean advanceLeft = false;
 		boolean advanceMiddle = false;
 		boolean advanceRight = true;
