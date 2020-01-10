@@ -19,11 +19,45 @@ Hereafter, for each classes give function to be tested. Remember that all functi
 ### Classe Machine
 #### functions
 
+To Test :
+	-convert(String msg)
+	-convertchar(char)
+	-advanceRotors()
+	-setPositions(String setting)
+Not to Test :
+ 	-initRotors(Reflector reflector, Rotor left, Rotor middle, Rotor right) car test de configuration
+ 	
+ 	- configure(Reflector reflector, Rotor left, Rotor middle, Rotor right, String setting) même raison
+ 
+ Le reste n'est pas à tester car code autogénéré
+
 ### Classe Reflector
 #### functions
 
+To Test :
+	-convertForward(int p)
+	-convertBackward(int unused)
+	-reflectorFactory(String str)
+
+Not to test :
+	Le reste est du code autogénéré	
+	
 ### Classe Rotor
 #### functions
+
+To Test :
+	-convertForward(int p)
+	-convertBackward(int e)
+	-advance()
+	-atNotch()
+	-toLetter(int p)
+	-toIndex(char c)
+	-rotorFactory(String str, String notches)
+	-createBCipher()
+
+Not to test :
+	Le reste est du code autogénéré	
+	
 
 ## Tricks & tips
 
@@ -33,7 +67,7 @@ Hereafter, for each classes give function to be tested. Remember that all functi
 - Use @Test before each testFunction !
 - When you test a void function of the class Rotor, then test the rotor instance's state
 > Rotor r=new Rotor();
-> int actual = r.getosition();
+> int actual = r.getposition();
 - You can test a function than throws an exception with the argument: expected
 > @Test(expected=Exception.class)
 
